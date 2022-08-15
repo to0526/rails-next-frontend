@@ -13,6 +13,7 @@ export default function Articles(props) {
             <th>内容</th>
             <th>作成日時</th>
             <th>更新日時</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +28,11 @@ export default function Articles(props) {
               <td>{article.content}</td>
               <td>{article.created_at}</td>
               <td>{article.updated_at}</td>
+              <td>
+                <Link href={`/articles/${article.id}/edit`}>
+                  <a className={styles.link}>編集</a>
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>
