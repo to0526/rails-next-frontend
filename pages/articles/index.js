@@ -1,3 +1,6 @@
+import Link from "next/link"
+import styles from "./index.module.css"
+
 export default function Articles(props) {
   return (
     <>
@@ -16,7 +19,11 @@ export default function Articles(props) {
           { props.articles.map((article) => (
             <tr key={article.id}>
               <td>{article.id}</td>
-              <td>{article.title}</td>
+              <td>
+                <Link href={`/articles/${article.id}`}>
+                  <a className={styles.link}>{article.title}</a>
+                </Link>
+              </td>
               <td>{article.content}</td>
               <td>{article.created_at}</td>
               <td>{article.updated_at}</td>
@@ -24,6 +31,10 @@ export default function Articles(props) {
           ))}
         </tbody>
       </table>
+      <hr />
+      <Link href="/articles/new">
+        <a className={styles.link}>新規登録フォーム</a>
+      </Link>
     </>
   )
 }

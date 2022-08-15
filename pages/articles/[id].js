@@ -1,3 +1,6 @@
+import Link from "next/link"
+import styles from "./id.module.css"
+
 export default function Article(props) {
   return (
     <>
@@ -7,6 +10,9 @@ export default function Article(props) {
       <div>内容: {props.article.content}</div>
       <div>作成日時: {props.article.created_at}</div>
       <div>更新日時: {props.article.updated_at}</div>
+      <Link href="/articles">
+        <a className={styles.link}>記事一覧</a>
+      </Link>
     </>
   )
 }
