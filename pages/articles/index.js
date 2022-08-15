@@ -13,24 +13,30 @@ export default function Articles(props) {
             <th>内容</th>
             <th>作成日時</th>
             <th>更新日時</th>
-            <th></th>
+            <th colSpan="3"></th>
           </tr>
         </thead>
         <tbody>
           { props.articles.map((article) => (
             <tr key={article.id}>
               <td>{article.id}</td>
-              <td>
-                <Link href={`/articles/${article.id}`}>
-                  <a className={styles.link}>{article.title}</a>
-                </Link>
-              </td>
+              <td>{article.title}</td>
               <td>{article.content}</td>
               <td>{article.created_at}</td>
               <td>{article.updated_at}</td>
               <td>
+                <Link href={`/articles/${article.id}`}>
+                  <a className={styles.link}>詳細</a>
+                </Link>
+              </td>
+              <td>
                 <Link href={`/articles/${article.id}/edit`}>
                   <a className={styles.link}>編集</a>
+                </Link>
+              </td>
+              <td>
+                <Link href={`/articles/${article.id}/destroy`}>
+                  <a className={styles.link}>削除</a>
                 </Link>
               </td>
             </tr>
